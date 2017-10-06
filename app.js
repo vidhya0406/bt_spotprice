@@ -2,6 +2,10 @@
 var express = require("express");
 //import mongodb package
 var mongodb = require("mongodb");
+var path = require('path');
+
+//Plotly
+var charts = require('plotly')('vidhya0406', 'PJQCBSWERHz3XdRzMggK');
 
 //MongoDB connection URL - mongodb://host:port/dbName
 var dbHost = "mongodb://test:test@ds037195.mlab.com:37195/cryptocurrency";
@@ -23,7 +27,6 @@ function getData(responseObj){
     for (index in data){
       var entry = data[index];
       var date = entry['date'];
-      console.log(date)
       var amount = entry['amount'];
 
       //push data to the arrays for plotting
@@ -34,14 +37,15 @@ function getData(responseObj){
     //Dataset for plotting
     var dataset = [
       {
-        "seriesname" : "Spot Price",
-        'Price': amountArray
+        x : dateArray,
+        y: amountArray,
+        type: "scatter"
+
       }
     ];
 
     var response = {
           "dataset" : dataset,
-          "categories" : dateArray
         };
     responseObj.json(response);
   });
@@ -63,7 +67,7 @@ app.get("/getPrices", function(req, res){
   getData(res);
 });
 app.get("/", function(req, res){
-  res.render("chart");
+  res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.listen(3300);
