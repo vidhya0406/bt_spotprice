@@ -1,0 +1,24 @@
+{
+  "name": "bt_spotprice",
+  "version": "1.0.0",
+  "description": "BT Spotprice trend rendering application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bitcoin",
+    "coinbase",
+    "webtask",
+    "serverless"
+  ],
+  "author": "Vidhya R",
+  "license": "MIT",
+  "dependencies": {
+    "coinbase": "^2.0.6",
+    "ejs": "^2.5.7",
+    "express": "^4.16.1",
+    "express-handlebars": "^3.0.0",
+    "mongodb": "^2.2.31"
+  }
+}
