@@ -39,6 +39,7 @@ function getData(responseObj){
       {
         x : dateArray,
         y: amountArray,
+        fill: "tonexty",
         type: "scatter"
 
       }
