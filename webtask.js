@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 
 app.post('/', function (req, res) {
   client.getSpotPrice({'currency': currencyCode}, function(err, price) {
-    mongoose.connect('mongodb://test:test@ds037195.mlab.com:37195/cryptocurrency');
+    mongoose.connect(DB_URL');
     var newPrice = cryptoCur({'amount': price.data.amount}).save(function(err,data){
      if (err) throw err;
      res.json(data);
