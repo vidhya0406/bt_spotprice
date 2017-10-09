@@ -1,6 +1,6 @@
 
 Plotting the bitcoin spotprice in CAD over time.
-The polling happens every 10 mins using webtask.
+The polling happens every 24 hours using webtask(Scheduled using the scheduler option in online webtask editor).
 
 ## Stack
 
