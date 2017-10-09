@@ -6,8 +6,8 @@ var Client = require('coinbase').Client;
 
 //Coinbase 
 var client = new Client({
-  'apiKey': 'KAD4o9FDdnJJ1fc3',
-  'apiSecret': '8GYSTaAr5YNKVVH0hI7yVsfmhcBpw6Or',
+  'apiKey': API_KEY,
+  'apiSecret': API_SECRET,
   'version':'2017-10-06'
 });
 currencyCode = 'CAD'  // can also use EUR, CAD, etc
