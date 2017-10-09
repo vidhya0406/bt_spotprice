@@ -44,11 +44,10 @@ function getData(responseObj){
 
       }
     ];
-
-    var response = {
-          "dataset" : dataset,
-        };
-    responseObj.json(response);
+    var graphOptions = {filename: "bt-trend", fileopt: "overwrite"};
+    charts.plot(dataset, graphOptions, function (err, msg) {
+      console.log(msg);
+    });
   });
 }
 
@@ -64,10 +63,8 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 //view configs
 app.use('/public', express.static('public'));
-app.get("/getPrices", function(req, res){
-  getData(res);
-});
 app.get("/", function(req, res){
+  getData();
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
